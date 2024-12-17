@@ -1,0 +1,53 @@
+---
+interface Image {
+  src: string;
+  alt: string;
+  category: string;
+}
+
+const images: Image[] = [
+  {
+    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc",
+    alt: "Wedding ceremony",
+    category: "Weddings"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1581467655410-0c2bf55d9d6c",
+    alt: "Portrait of a woman",
+    category: "Portraits"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1482192505345-5655af888cc4",
+    alt: "Corporate event",
+    category: "Events"
+  },
+  // Add more images as needed
+];
+
+const categories = [...new Set(images.map(img => img.category))];
+---
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="flex flex-wrap gap-4 mb-8 justify-center">
+    {categories.map(category => (
+      <button class="px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200">
+        {category}
+      </button>
+    ))}
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {images.map(image => (
+      <div class="group relative">
+        <img 
+          src={image.src}
+          alt={image.alt}
+          class="w-full h-80 object-cover rounded-lg"
+        />
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+          <span class="text-white text-xl font-medium">{image.category}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

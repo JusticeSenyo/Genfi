@@ -1,0 +1,37 @@
+---
+const works = [
+  {
+    image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80",
+    title: "Weddings",
+    alt: "Wedding photography"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1581467655410-0c2bf55d9d6c?auto=format&fit=crop&q=80",
+    title: "Portraits",
+    alt: "Portrait photography"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&q=80",
+    title: "Events",
+    alt: "Event photography"
+  }
+];
+---
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+  <h2 class="text-3xl font-bold text-center mb-12">Featured Work</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {works.map(work => (
+      <div class="group relative">
+        <img 
+          src={work.image}
+          alt={work.alt}
+          class="w-full h-80 object-cover rounded-lg"
+        />
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+          <span class="text-white text-xl font-medium">{work.title}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

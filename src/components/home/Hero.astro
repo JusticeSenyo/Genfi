@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<section class="relative h-screen">
+  <div class="absolute inset-0">
+    <img 
+      src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80"
+      alt="Hero image" 
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/50"></div>
+  </div>
+  <div class="relative h-full flex items-center justify-center text-center text-white px-4">
+    <div>
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">{title}</h1>
+      <p class="text-xl mb-8">{subtitle}</p>
+      <div class="space-x-4">
+        <a href="/portfolio" class="bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100">
+          View Portfolio
+        </a>
+        <a href="/contact" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-gray-900">
+          Book a Session
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

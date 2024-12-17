@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  price: string;
+  description: string;
+  features: string[];
+}
+
+const { title, price, description, features } = Astro.props;
+---
+
+<div class="bg-white p-8 rounded-lg shadow-sm border">
+  <h3 class="text-2xl font-bold mb-4">{title}</h3>
+  <p class="text-4xl font-bold mb-4">{price}</p>
+  <p class="text-gray-600 mb-6">{description}</p>
+  <ul class="space-y-3">
+    {features.map(feature => (
+      <li class="flex items-center">
+        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        {feature}
+      </li>
+    ))}
+  </ul>
+  <a href="/contact" class="block text-center bg-gray-900 text-white px-6 py-3 rounded-lg mt-8 hover:bg-gray-800">
+    Book Now
+  </a>
+</div>
